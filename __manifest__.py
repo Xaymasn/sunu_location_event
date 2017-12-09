@@ -5,7 +5,7 @@
     'summary': """Colonnes de location de chaises dans la facture""",
 
     'description': """
-        Long description of module's purpose
+        Module de gestion de location d'articles
     """,
 
     'author': "Elhadji Malang Diedhiou",
