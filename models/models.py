@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 class hdlabs_facture_senegalbaches(models.Model):
     _inherit = "sale.order"
-    nb_jours = fields.Char('Nombre de jours')
+    nb_jours = fields.Integer()
 
 #     _column = {'nb_jours': fields.Char('Nombre de jours')}
 #     _name = 'hdlabs_facture_senegalbaches.hdlabs_facture_senegalbaches'
