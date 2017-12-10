@@ -30,7 +30,7 @@
         
         <!-- On ajoute le nombre de jours après la colonne quantité -->
         <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="after">
-            <field name="sale.orde.nbJours"/>
+            <field name="sale.order.nbJours"/>
         </xpath>
       </field>
     </record>
