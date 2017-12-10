@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 class hdlabs_facture_senegalbaches(models.Model):
-    _inherit        = "sale.order.line"
+    _inherit        = "sale.order"
     lieuEvent       = fields.Char()
     dateEvent       = fields.Date()
     dateMontage     = fields.Date()   
