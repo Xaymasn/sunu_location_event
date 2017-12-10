@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 class hdlabs_facture_senegalbaches(models.Model):
-    _inherit = "sale.order"
+    _inherit = "sale.order.line"
     nb_jours = fields.Integer()
 
 #     _column = {'nb_jours': fields.Char('Nombre de jours')}
