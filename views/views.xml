@@ -23,9 +23,9 @@
       <field name="arch" type="xml">
         <form>
           <!-- On ajoute le nombre de jours après la colonne quantité -->
-          <field name="product_uom_qty" position="after">
-              <field name="nb_jours" />
-          </field>
+          <xpath expr="//field[@name='product_uom_qty']" position="after">
+                <field name="nb_jours"/>
+            </xpath>
         </form>
       </field>
     </record>
