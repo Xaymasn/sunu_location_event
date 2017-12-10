@@ -23,6 +23,7 @@
       <field name="arch" type="xml">
         <data>
           <xpath expr="//field[@name='partner_id']" position="after">
+            <label for="lieuEvent"></label>
             <field name="lieuEvent" />
             <field name="dateEvent" />
             <field name="dateMontage" />
