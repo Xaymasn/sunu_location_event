@@ -29,9 +29,9 @@
         </xpath>
         
         <!-- On ajoute le nombre de jours après la colonne quantité -->
-        <xpath expr="//field[@name='product_uom_qty']" position="after">
+        <field name="product_uom_qty" position="after">
           <field name="nbJours"/>
-        </xpath>
+        </field>
       </field>
     </record>
     
