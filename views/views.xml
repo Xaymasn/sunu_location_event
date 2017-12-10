@@ -22,19 +22,19 @@
       <field name="type">form</field>
       <field name="inherit_id" ref="sale.view_order_form" />
       <field name="arch" type="xml">
-        <form string="Sales Order">
-          <xpath expr="//field[@name='partner_id']" position="after">
+        <xpath expr="//field[@name='partner_id']" position="after">
+          <group>
             <field name="lieuEvent" />
             <field name="dateEvent" />
             <field name="dateMontage" />
             <field name="dateDemontage" />
             <field name="nbJours"/>
-          </xpath>
-          
-          <!-- On ajoute le nombre de jours après la colonne quantité -->
-          <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="after">
-          </xpath>
-        </form>
+          </group>
+        </xpath>
+        
+        <!-- On ajoute le nombre de jours après la colonne quantité -->
+        <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="after">
+        </xpath>
       </field>
     </record>
     
