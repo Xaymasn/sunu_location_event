@@ -17,16 +17,14 @@
 
     <!-- Form View -->
     <record model="ir.ui.view" id="sunulocationevenemt_form">
-      <field name="name">sunulocationevenemt.form</field>
+      <field name="name">sale.order.custom.form.inherited</field>
       <field name="model">sale.order</field>
       <field name="inherit_id" ref="sale.view_order_form" />
       <field name="arch" type="xml">
-        <form>
           <!-- On ajoute le nombre de jours après la colonne quantité -->
           <xpath expr="//field[@name='partner_id']" position="after">
-          </xpath>
             <field name="nb_jours"/>
-        </form>
+          </xpath>
       </field>
     </record>
     
