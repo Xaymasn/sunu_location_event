@@ -21,15 +21,14 @@
       <field name="model">sale.order</field>
       <field name="inherit_id" ref="sale.view_order_form" />
       <field name="arch" type="xml">
-        <data>
+        <form string="Facturama">
           <xpath expr="//field[@name='partner_id']" position="after">
-            <label for="lieuEvent"></label>
             <field name="lieuEvent" />
             <field name="dateEvent" />
             <field name="dateMontage" />
             <field name="dateDemontage" />
             <field name="nbJours"/>
-          </xpath>
+          </form>
           
           <!-- On ajoute le nombre de jours après la colonne quantité -->
           <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="after">
