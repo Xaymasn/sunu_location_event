@@ -10,9 +10,6 @@ class hdlabs_facture_senegalbaches(models.Model):
     dateDemontage   = fields.Date()
     nbJours         = fields.Integer()
 
-    _inherit = "sale.order"
-    nb_jours = fields.Char('Nombre de jours')
-
 #     _column = {'nb_jours': fields.Char('Nombre de jours')}
 #     _name = 'hdlabs_facture_senegalbaches.hdlabs_facture_senegalbaches'
 #     name = fields.Char()
