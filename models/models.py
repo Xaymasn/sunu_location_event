@@ -2,7 +2,7 @@
 
 from odoo import models, fields, api
 
-class hdlabs_facture_senegalbaches(models.Model):
+class sunulocationevent(models.Model):
     _inherit = "sale.order.line"
     nb_jours = fields.Integer()
 
