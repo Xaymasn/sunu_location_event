@@ -3,10 +3,13 @@
 from odoo import models, fields, api
 
 class sunulocationevent(models.Model):
-    _inherit = "sale.order.line"
-    nb_jours = fields.Integer()
+    _inherit        = "sale.order.line"
+    lieuEvent       = fields.Char()
+    dateEvent       = fields.Date()
+    dateMontage     = fields.Date()   
+    dateDemontage   = fields.Date()
+    nbJours         = fields.Integer()
 
-#     _column = {'nb_jours': fields.Char('Nombre de jours')}
 #     _name = 'hdlabs_facture_senegalbaches.hdlabs_facture_senegalbaches'
 #     name = fields.Char()
 #     value = fields.Integer()
