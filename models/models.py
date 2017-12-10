@@ -3,14 +3,12 @@
 from odoo import models, fields, api
 
 class hdlabs_facture_senegalbaches(models.Model):
-    _inherit        = "sale.order"
+    _inherits       = ['sale.order','sale.order.line']
     lieuEvent       = fields.Char(string="Lieu de l'évènement")
     dateEvent       = fields.Date(string="Date de l'évènement")
     dateMontage     = fields.Date(string="Date de montage", required=True)   
     dateDemontage   = fields.Date(string="Date de démontage", required=True)
-    _columns={
-        'nbJours':fields.Integer('Nombre de jours')
-    }
+    nbJours         = fields.Integer(string='Nombre de jours')
 
 #     _column = {'nb_jours': fields.Char('Nombre de jours')}
 #     _name = 'hdlabs_facture_senegalbaches.hdlabs_facture_senegalbaches'

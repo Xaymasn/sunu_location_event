@@ -28,12 +28,12 @@
             <field name="dateEvent" />
             <field name="dateMontage" />
             <field name="dateDemontage" />
-            <field name="nbJours"/>
           </group>
         </xpath>
         
         <!-- On ajoute le nombre de jours après la colonne quantité -->
         <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="after">
+            <field name="nbJours"/>
         </xpath>
       </field>
     </record>
