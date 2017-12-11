@@ -28,14 +28,10 @@
             <field name="dateDemontage" />
         </xpath>
         
-        <field name="order_line" mode="tree,kanban" position="inside">
-          <!-- On ajoute le nombre de jours après la colonne quantité -->
-            <tree>
-              <xpath expr="//field[@name='product_uom_qty']" position="after">
-                <field name="nbJours"/>
-              </xpath>
-            </tree>
-        </field>
+        <!-- On ajoute le nombre de jours après la colonne quantité -->
+        <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="after">
+            <field name="nbJours"/>
+        </xpath>
       </field>
     </record>
     
@@ -48,6 +44,8 @@
       <field name="view_mode">tree,form</field>
     </record>
     -->
+
+
 
     <!-- server action to the one above -->
     <!--
