@@ -8,10 +8,8 @@ class sunulocationevent_order(models.Model):
     dateEvent       = fields.Date(string="Date de l'évènement")
     dateMontage     = fields.Date(string="Date de montage", required=True)   
     dateDemontage   = fields.Date(string="Date de démontage", required=True)
-
-class sunulocationevent_order_line(models.Model):
-    _inherits       = 'sale.order.line'
     nbJours         = fields.Integer(string='Nombre de jours')
+
 
 #     _column = {'nb_jours': fields.Char('Nombre de jours')}
 #     _name = 'hdlabs_facture_senegalbaches.hdlabs_facture_senegalbaches'
