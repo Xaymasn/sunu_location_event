@@ -22,15 +22,15 @@
       <field name="inherit_id" ref="sale.view_order_form" />
       <field name="arch" type="xml">
         <xpath expr="//field[@name='partner_id']" position="after">
-            <field name="lieuEvent" />
-            <field name="dateEvent" />
-            <field name="dateMontage" />
-            <field name="dateDemontage" />
+            <field name="lieuEvent" string="Lieu de l'évènement"/>
+            <field name="dateEvent" string="Date de l'événement" />
+            <field name="dateMontage" string="Date de montage" />
+            <field name="dateDemontage" string="Date de démontage"/>
+            <field name="nbJours" string="Nombre de jours" />
         </xpath>
         
         <!-- On ajoute le nombre de jours après la colonne quantité -->
         <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="after">
-            <field name="nbJours" string="Nombre de jours" />
         </xpath>
       </field>
     </record>
