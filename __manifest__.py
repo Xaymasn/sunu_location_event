@@ -9,8 +9,8 @@
                 - Prise en compte de la date de fin de l'événement
                 - Prise en compte du lieu de livraison du matériel
                 - Prise en compte de la date de reprise du matériel
-                - Création d'un entrepôt 'Location' dans Odoo
-                - Déplacement automatique (dans Odoo) du matériel loué vers l'entrepôt 'Location'
+                - Création d'un entrepôt '**Location**' dans Odoo
+                - Déplacement automatique (dans Odoo) du matériel loué vers l'entrepôt '**Location**'
         """,
     'author': "Elhadji Malang Diedhiou",
     'website': "http://www.supermalang.com",
