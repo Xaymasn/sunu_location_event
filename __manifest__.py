@@ -2,7 +2,16 @@
 {
     'name': "Sunu Location Evenement",
     'summary': """Gestion de la location de matériel d'événementiel""",
-    'description': """Gestion de la location de matériel. Prise en compte du nombre de jours de location, de la date de début, de la date de fin, du lieu de livraison, de la date de montage et démontage, etc.""",
+    'description': """
+        Gestion de la location de matériel :
+                - Prise en compte du nombre de jours de location
+                - Prise en compte de la date de début de l'événement
+                - Prise en compte de la date de fin de l'événement
+                - Prise en compte du lieu de livraison du matériel
+                - Prise en compte de la date de reprise du matériel
+                - Création d'un entrepôt 'Location' dans Odoo
+                - Déplacement automatique (dans Odoo) du matériel loué vers l'entrepôt 'Location'
+        """
     'author': "Elhadji Malang Diedhiou",
     'website': "http://www.supermalang.com",
 
