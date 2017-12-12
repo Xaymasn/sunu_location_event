@@ -2,13 +2,13 @@
 
 from odoo import models, fields, api
 
-class sunulocationevent_order(models.Model):
-    _inherits       = 'sale.order'
-    lieuEvent       = fields.Char(string="Lieu de l'évènement")
-    dateEvent       = fields.Date(string="Date de l'évènement")
-    dateMontage     = fields.Date(string="Date de montage", required=True)   
-    dateDemontage   = fields.Date(string="Date de démontage", required=True)
-    nbJours         = fields.Integer(string='Nombre de jours')
+class Sunulocationevent_order(models.Model):
+    _inherits = 'sale.order'
+    lieuEvent = fields.Char()
+    dateEvent = fields.Date()
+    dateMontage = fields.Date()
+    dateDemontage = fields.Date()
+    nbJours = fields.Integer()
 
 
 #     _column = {'nb_jours': fields.Char('Nombre de jours')}
