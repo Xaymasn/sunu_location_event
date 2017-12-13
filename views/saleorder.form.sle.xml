@@ -1,0 +1,22 @@
+<odoo>
+  <data>
+    <!-- Form View -->
+    <record model="ir.ui.view" id="sle_saleorder_form">
+      <field name="name">sle.saleorder.form</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='partner_id']" position="after">
+            <field name="lieuEvent"/>
+            <field name="dateEvent"/>
+            <field name="dateMontage"/>
+            <field name="dateDemontage"/>
+            <field name="nombreJours"/>
+        </xpath>
+        <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="after">
+            <strong>Mansoft</strong>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
