@@ -3,12 +3,12 @@
 from odoo import models, fields, api
 
 class Sunulocationevent_order(models.Model):
-    _inherits = 'sale.order'
+    _inherit = 'sale.order'
     lieuEvent = fields.Char()
     dateEvent = fields.Date()
     dateMontage = fields.Date()
     dateDemontage = fields.Date()
-#    nombreJours = fields.Integer()
+    nombreJours = fields.Integer()
 
 
 #     _column = {'nb_jours': fields.Char('Nombre de jours')}
