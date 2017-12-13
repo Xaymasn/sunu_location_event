@@ -11,11 +11,14 @@ class Sunulocationevent_order(models.Model):
     dateDemontage = fields.Date("Date de démontage")
     nombreJours = fields.Integer("Nombre de jours")
 
-#     _name = 'hdlabs_facture_senegalbaches.hdlabs_facture_senegalbaches'
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
+    # onchange handler
+    @api.onchange('product_uom_qty', 'nombreJours')
+    def _onchange_price(self):
+        # set auto-changing field
+        self.price_subtotal = self.product_uom_qty * self.nombreJours
+        # Can optionally return a warning and domains
+
+
 #
 #     @api.depends('value')
 #     def _value_pc(self):
