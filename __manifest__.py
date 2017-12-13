@@ -27,9 +27,8 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
-        'views/invoice.sunulocationevent.xml',
+        'views/saleorder.form.sle.xml',
+        'views/invoice.sle.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
