@@ -6,10 +6,10 @@ class Sunulocationevent_order(models.Model):
     _inherit = 'sale.order'
     
     lieuEvent = fields.Char("Lieu de l'événement")
-    dateEvent = fields.Date()
-    dateMontage = fields.Date()
-    dateDemontage = fields.Date()
-    nombreJours = fields.Integer()
+    dateEvent = fields.Date("Date l'événement")
+    dateMontage = fields.Date("Date de montage")
+    dateDemontage = fields.Date("Date de démontage")
+    nombreJours = fields.Integer("Nombre de jours")
 
 
 #     _column = {'nb_jours': fields.Char('Nombre de jours')}
