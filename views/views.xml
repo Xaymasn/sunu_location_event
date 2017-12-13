@@ -26,24 +26,11 @@
             <field name="dateEvent"/>
             <field name="dateMontage"/>
             <field name="dateDemontage"/>
-        </xpath>
-      </field>
-    </record>
-        
-    <!-- Form View -->
-    <record model="ir.ui.view" id="sunulocationevent_form_line">
-      <field name="name">sunulocationevent.orderline.form</field>
-      <field name="model">sale.order.line</field>
-      <field name="inherit_id" ref="sunulocationevent_form" />
-      <field name="arch" type="xml">
-        <!-- On ajoute le nombre de jours après la colonne quantité -->
-        <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="after">
             <field name="nombreJours"/>
         </xpath>
       </field>
     </record>
-    
-
+        
     <!-- actions opening views on models -->
     <!--
     <record model="ir.actions.act_window" id="hdlabs_facture_senegalbaches.action_window">
