@@ -4,7 +4,8 @@ from odoo import models, fields, api
 
 class Sunulocationevent_order(models.Model):
     _inherit = 'sale.order'
-    lieuEvent = fields.Char()
+    
+    lieuEvent = fields.Char("Lieu de l'événement")
     dateEvent = fields.Date()
     dateMontage = fields.Date()
     dateDemontage = fields.Date()
