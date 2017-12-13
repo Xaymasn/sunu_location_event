@@ -26,7 +26,7 @@
             <field name="dateEvent" string="Date de l'événement" />
             <field name="dateMontage" string="Date de montage" />
             <field name="dateDemontage" string="Date de démontage"/>
-            <field name="nombreJours" string="Nombre de jours" />
+            <!--field name="nombreJours" string="Nombre de jours" /-->
         </xpath>
         
         <!-- On ajoute le nombre de jours après la colonne quantité -->
