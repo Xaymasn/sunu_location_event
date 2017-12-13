@@ -24,7 +24,7 @@
                         </tr>
                         <tr>
                             <td><strong>Nombre de jours de location:</strong></td>
-                            <td><p t-field="doc.dateDemontage"/></td>
+                            <td><p t-field="doc.nombreJours"/></td>
                         </tr>
                     </table>
                 </div>
