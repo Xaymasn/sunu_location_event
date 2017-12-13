@@ -8,7 +8,7 @@ class Sunulocationevent_order(models.Model):
     dateEvent = fields.Date()
     dateMontage = fields.Date()
     dateDemontage = fields.Date()
-    nbJours = fields.Integer()
+    nombreJours = fields.Integer()
 
 
 #     _column = {'nb_jours': fields.Char('Nombre de jours')}
