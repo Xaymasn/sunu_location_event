@@ -3,7 +3,7 @@
     <!-- Form View -->
     <record model="ir.ui.view" id="sle_saleorder_form">
       <field name="name">sle.saleorder.form</field>
-      <field name="model">sale.order.line</field>
+      <field name="model">sale.order</field>
       <field name="inherit_id" ref="sale.view_order_form" />
       <field name="arch" type="xml">
         <xpath expr="//field[@name='partner_id']" position="after">
@@ -12,6 +12,15 @@
             <field name="dateMontage"/>
             <field name="dateDemontage"/>
         </xpath>
+      </field>
+    </record>
+
+    <!-- Form View -->
+    <record model="ir.ui.view" id="sle_saleorderline_form">
+      <field name="name">sle.saleorderline.form</field>
+      <field name="model">sale.order.line</field>
+      <field name="inherit_id" ref="sale.view_order_form" />
+      <field name="arch" type="xml">
         <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="after">
             <field name="nombreJours"/>
         </xpath>
