@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 class Sunulocationevent_order(models.Model):
-    _inherit = 'sale.order'
+    _inherit = 'sale.order.line'
     
     lieuEvent = fields.Char("Lieu de l'événement")
     dateEvent = fields.Date("Date l'événement")
@@ -11,8 +11,6 @@ class Sunulocationevent_order(models.Model):
     dateDemontage = fields.Date("Date de démontage")
     nombreJours = fields.Integer("Nombre de jours")
 
-
-#     _column = {'nb_jours': fields.Char('Nombre de jours')}
 #     _name = 'hdlabs_facture_senegalbaches.hdlabs_facture_senegalbaches'
 #     name = fields.Char()
 #     value = fields.Integer()
