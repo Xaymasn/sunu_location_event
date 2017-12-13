@@ -4,21 +4,29 @@
        <template id="sle_report_invoice_document_inherit" inherit_id="sale.report_saleorder_document">
         <xpath expr="//div[@id='informations']" position="after">
             <div class="row mt32 mb32" id="sle_event_details">
-                <div class="col-xs-3">
-                    <strong>Date de l'évènement:</strong>
-                    <p t-field="doc.dateEvent"/>
-                </div>
-                <div class="col-xs-3">
-                    <strong>Lieu de l'évènement:</strong>
-                    <p t-field="doc.lieuEvent"/>
-                </div>
-                <div class="col-xs-3">
-                    <strong>Date de montage:</strong>
-                    <p t-field="doc.dateMontage"/>
-                </div>
-                <div class="col-xs-3">
-                    <strong>Date de démontage:</strong>
-                    <p t-field="doc.dateDemontage"/>
+                <div class="col-xs-4">
+                    <table>
+                        <tr>
+                            <td><strong>Date de l'évènement:</strong></td>
+                            <td><p t-field="doc.dateEvent"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lieu de l'évènement:</strong></td>
+                            <td><p t-field="doc.lieuEvent"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Date de montage du matériel:</strong></td>
+                            <td><p t-field="doc.dateMontage"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Date de démontage du matériel:</strong></td>
+                            <td><p t-field="doc.dateDemontage"/></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nombre de jours de location:</strong></td>
+                            <td><p t-field="doc.dateDemontage"/></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 	    </xpath>
