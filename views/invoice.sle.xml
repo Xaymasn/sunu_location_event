@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!-- Ce template gère la mise en forme des rapports PDF (Factures, devis, duplicata proforma, etc.) -->
 <odoo>
     <data>
@@ -11,19 +10,19 @@
                         <table>
                             <tr>
                                 <td><strong>Date de l'évènement:</strong></td>
-                                <td><p t-field="doc.dateEvent"/></td>
+                                <td><span t-field="doc.dateEvent"/></td>
                             </tr>
                             <tr>
                                 <td><strong>Lieu de l'évènement:</strong></td>
-                                <td><p t-field="doc.lieuEvent"/></td>
+                                <td><span t-field="doc.lieuEvent"/></td>
                             </tr>
                             <tr>
                                 <td><strong>Date de montage du matériel:</strong></td>
-                                <td><p t-field="doc.dateMontage"/></td>
+                                <td><span t-field="doc.dateMontage"/></td>
                             </tr>
                             <tr>
                                 <td><strong>Date de démontage du matériel:</strong></td>
-                                <td><p t-field="doc.dateDemontage"/></td>
+                                <td><span t-field="doc.dateDemontage"/></td>
                             </tr>
                         </table>
                     </div>
@@ -33,12 +32,12 @@
             <!-- # Ajout de la colone 'Nb Jours' # -->
                 <!-- On ajoute d'abord l'entête -->
                 <xpath expr="//table[@class='table table-condensed']//thead//tr/th[3]" position="after">
-                    <th>Nb Jours</th>
+                    <th class="text-right">Nb Jours</th>
                 </xpath>
 
                 <!-- Ensuite on ajoute le corps de la colonne -->
                 <xpath expr="//tbody[@class='sale_tbody']//tr//td[3]" position="after">
-                    <td><span t-field="doc.nombreJours"/></td>
+                    <td class="text-right"><span t-field="doc.nombreJours"/></td>
                 </xpath>
             <!-- # FIN Ajout de la colone 'Nb Jours' # -->
         </template>
