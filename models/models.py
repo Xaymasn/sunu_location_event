@@ -24,4 +24,4 @@ class Sle_orderline(models.Model):
     #@api.depends('dateMontage','dateDemontage')
     def _autoCalcNbJours(self):
         for record in self:
-            record.nombreJours = (self.dateDemontage - self.dateMontage).days
+            record.nombreJours = (dateDemontage - dateMontage).days
