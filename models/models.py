@@ -15,9 +15,6 @@ class Sle_orderline(models.Model):
     #nombreJours = fields.Integer(string="Nombre de jours", compute="_autoCalcNbJours")
 
 
-
-
-
     #@api.onchange('nombreJours')
     #def _onchange_price(self):
         #for record in self:
