@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-from datetime import date
 
 class Sle_order(models.Model):
     _inherit = 'sale.order'
@@ -12,8 +11,12 @@ class Sle_order(models.Model):
 
 class Sle_orderline(models.Model):
     _inherit = 'sale.order.line'
-    nombreJours = fields.Integer(string="Nombre de jours")
+    nombreJours = fields.Integer("Nombre de jours")
     #nombreJours = fields.Integer(string="Nombre de jours", compute="_autoCalcNbJours")
+
+
+
+
 
     #@api.onchange('nombreJours')
     #def _onchange_price(self):
@@ -24,9 +27,8 @@ class Sle_orderline(models.Model):
         # Can optionally return a warning and domains
 
     # Calcule automatiquement le nombre de jours de location à partir de la date de montage et de la date de démontage
-    '''
-    @api.depends('dateMontage','dateDemontage')
-    def _autoCalcNbJours(self):
-        for record in self:
-            record.nombreJours = (dateDemontage - dateMontage).days
-    '''
+    
+    #@api.depends('dateMontage','dateDemontage')
+    #def _autoCalcNbJours(self):
+    #    for record in self:
+    #        record.nombreJours = (dateDemontage - dateMontage).days
