@@ -4,7 +4,7 @@
        <template id="sle_report_invoice_document_inherit" inherit_id="sale.report_saleorder_document">
         <xpath expr="//div[@id='informations']" position="after">
             <div class="row mt32 mb32" id="sle_event_details">
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-md-6">
                     <table>
                         <tr>
                             <td><strong>Date de l'évènement:</strong></td>
@@ -22,14 +22,12 @@
                             <td><strong>Date de démontage du matériel:</strong></td>
                             <td><p t-field="doc.dateDemontage"/></td>
                         </tr>
-                        <tr>
-                            <td><strong>Nombre de jours de location:</strong></td>
-                            <td><!--p t-field="doc.nombreJours"/--></td>
-                        </tr>
                     </table>
                 </div>
             </div>
 	    </xpath>
+        <xpath expr="/html/body/div/main/div[2]/div/table/thead/tr/th[4]" position="after">
+        </xpath>
      </template>
   </data>
 </odoo>

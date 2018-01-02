@@ -14,11 +14,9 @@ class Sle_orderline(models.Model):
     _inherit = 'sale.order.line'
     nombreJours = fields.Integer("Nombre de jours")
 
-    # onchange handler
-    @api.onchange('product_uom_qty', 'nombreJours')
+    @api.onchange('product_uom_qty', 'nombreJours','unit_price')
     def _onchange_price(self):
-        # set auto-changing field
-        self.price_subtotal = self.product_uom_qty * self.nombreJours
+        self.price_subtotal = self.product_uom_qty * self.nombreJours * self.unit_price
         # Can optionally return a warning and domains
 
 
