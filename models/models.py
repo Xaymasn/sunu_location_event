@@ -21,7 +21,7 @@ class Sle_orderline(models.Model):
         # Can optionally return a warning and domains
 
     # Calcule automatiquement le nombre de jours de location à partir de la date de montage et de la date de démontage
-    @api.depends('dateMontage','dateDemontage')
-    def _autoCalcNbJours(self):
-        for record in self:
-            record.nombreJours = (self.dateDemontage - self.dateMontage).days
+    #@api.depends('dateMontage','dateDemontage')
+    #def _autoCalcNbJours(self):
+    #    for record in self:
+    #        record.nombreJours = (self.dateDemontage - self.dateMontage).days
