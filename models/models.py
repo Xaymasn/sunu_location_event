@@ -8,7 +8,6 @@ class Sle_order(models.Model):
     dateEvent = fields.Date("Date l'événement")
     dateMontage = fields.Date("Date de montage")
     dateDemontage = fields.Date("Date de démontage")
-    nombreJours = fields.Integer("Nombre de jours")
 
 class Sle_orderline(models.Model):
     _inherit = 'sale.order.line'

@@ -1,33 +1,46 @@
+<!-- Ce template gère la mise en forme des rapports PDF (Factures, devis, duplicata proforma, etc.) -->
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-       <template id="sle_report_invoice_document_inherit" inherit_id="sale.report_saleorder_document">
-        <xpath expr="//div[@id='informations']" position="after">
-            <div class="row mt32 mb32" id="sle_event_details">
-                <div class="col-xs-12 col-md-6">
-                    <table>
-                        <tr>
-                            <td><strong>Date de l'évènement:</strong></td>
-                            <td><p t-field="doc.dateEvent"/></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Lieu de l'évènement:</strong></td>
-                            <td><p t-field="doc.lieuEvent"/></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Date de montage du matériel:</strong></td>
-                            <td><p t-field="doc.dateMontage"/></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Date de démontage du matériel:</strong></td>
-                            <td><p t-field="doc.dateDemontage"/></td>
-                        </tr>
-                    </table>
+        <!-- Héritage de la vue "sale.report_saleorder_document" -->
+        <template id="sle_report_invoice_document_inherit" inherit_id="sale.report_saleorder_document">
+            <!-- Ajout des information de location -->
+            <xpath expr="//div[@id='informations']" position="after">
+                <div class="row mt32 mb32" id="sle_event_details">
+                    <div class="col-xs-12 col-md-6">
+                        <table>
+                            <tr>
+                                <td><strong>Date de l'évènement:</strong></td>
+                                <td><p t-field="doc.dateEvent"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lieu de l'évènement:</strong></td>
+                                <td><p t-field="doc.lieuEvent"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Date de montage du matériel:</strong></td>
+                                <td><p t-field="doc.dateMontage"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Date de démontage du matériel:</strong></td>
+                                <td><p t-field="doc.dateDemontage"/></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-            </div>
-	    </xpath>
-        <xpath expr="/html/body/div/main/div[2]/div/table/thead/tr/th[4]" position="after">
-        </xpath>
-     </template>
+            </xpath>
+
+            <!-- # Ajout de la colone 'Nb Jours' # -->
+                <!-- On ajoute d'abord l'entête -->
+                <xpath expr="//table[@class='table table-condensed']//thead//tr/th[3]" position="after">
+                    <th>Nb Jours</th>
+                </xpath>
+
+                <!-- Ensuite on ajoute le corps de la colonne -->
+                <xpath expr="//tbody[@class='sale_tbody']//tr//td[3]" position="after">
+                    <td><span t-field="doc.nombreJours"/></td>
+                </xpath>
+            <!-- # FIN Ajout de la colone 'Nb Jours' # -->
+        </template>
   </data>
 </odoo>

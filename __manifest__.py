@@ -19,7 +19,7 @@
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full list
     'category': 'Sales Management',
-    'version': '0.1',
+    'version': '11.0',
 
     # any module necessary for this one to work correctly
     'depends': ['base','sale_management'],
@@ -32,6 +32,6 @@
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
+        #'demo/demo.xml',
     ],
 }
