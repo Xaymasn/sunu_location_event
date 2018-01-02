@@ -17,8 +17,10 @@ class Sle_orderline(models.Model):
 
     @api.onchange('product_uom_qty','price_unit','nombreJours')
     def _onchange_price(self):
-        for record in self:
-            record.price_subtotal = record.product_uom_qty * record.nombreJours * record.price_unit
+        self.price_subtotal = self.product_uom_qty * self.nombreJours * self.price_unit
+        
+        #for record in self:
+        #    record.price_subtotal = record.product_uom_qty * record.nombreJours * record.price_unit
         # Can optionally return a warning and domains
 
     # Calcule automatiquement le nombre de jours de location à partir de la date de montage et de la date de démontage
