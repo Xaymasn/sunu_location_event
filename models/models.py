@@ -15,10 +15,10 @@ class Sle_orderline(models.Model):
     nombreJours = fields.Integer(string="Nombre de jours")
     #nombreJours = fields.Integer(string="Nombre de jours", compute="_autoCalcNbJours")
 
-    @api.onchange('nombreJours')
-    def _onchange_price(self):
-        for record in self:
-            record.price_subtotal = record.price_subtotal * record.nombreJours
+    #@api.onchange('nombreJours')
+    #def _onchange_price(self):
+        #for record in self:
+            #record.price_subtotal = record.price_subtotal * record.nombreJours
         #self.price_subtotal = self.product_uom_qty * self.nombreJours * self.price_unit
         
         # Can optionally return a warning and domains
