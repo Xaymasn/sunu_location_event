@@ -15,12 +15,12 @@ class Sle_orderline(models.Model):
     nombreJours = fields.Integer(string="Nombre de jours")
     #nombreJours = fields.Integer(string="Nombre de jours", compute="_autoCalcNbJours")
 
-    @api.onchange('product_uom_qty','price_unit','nombreJours')
+    @api.onchange('nombreJours')
     def _onchange_price(self):
-        self.price_subtotal = self.product_uom_qty * self.nombreJours * self.price_unit
+        for record in self:
+            record.price_subtotal = record.price_subtotal * record.nombreJours
+        #self.price_subtotal = self.product_uom_qty * self.nombreJours * self.price_unit
         
-        #for record in self:
-        #    record.price_subtotal = record.product_uom_qty * record.nombreJours * record.price_unit
         # Can optionally return a warning and domains
 
     # Calcule automatiquement le nombre de jours de location à partir de la date de montage et de la date de démontage
