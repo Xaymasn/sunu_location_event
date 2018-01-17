@@ -28,6 +28,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         'views/saleorder.form.sle.xml',
+        'views/saleorder.tree.sle.xml',
         'views/invoice.sle.xml',
     ],
     # only loaded in demonstration mode

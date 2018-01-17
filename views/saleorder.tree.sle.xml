@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+    <odoo>
+    <data>
+        <!-- Vue en liste -->
+        <record model="ir.ui.view" id="sle_saleorder_tree">
+            <field name="name">sle.saleorder.list</field>
+                <field name="model">sale.order</field>
+                <field name="arch" type="xml">
+                <tree string="Quotation" class="o_sale_order" decoration-bf="message_needaction==True" decoration-muted="state=='cancel'">
+                    <field name="message_needaction" invisible="1"/>
+                    <field name="name" string="Quotation Number"/>
+                    <field name="date_order" string="Quotation Date"/>
+                    <field name="dateEvent" string="Date de l'événement"/>
+				    <field name="dateMontage" string="Date de montage"/>
+                    <field name="partner_id"/>
+                    <field name="user_id"/>
+                    <field name="amount_total" sum="Total Tax Included" widget="monetary"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>
