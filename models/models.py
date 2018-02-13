@@ -11,7 +11,7 @@ class Sle_order(models.Model):
 
 class Sle_orderline(models.Model):
     _inherit = 'sale.order.line'
-    nombreJours = fields.Integer(string="Nombre de jours", compute="_autoCalcNbJours")
+    nombreJours = fields.Integer("Nombre de jours calculés", compute="_autoCalcNbJours")
     #nombreJours = fields.Integer("Nombre de jours",default=1)
 
 
