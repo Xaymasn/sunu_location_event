@@ -15,8 +15,7 @@ class Sle_orderline(models.Model):
     #nombreJours = fields.Integer("Nombre de jours",default=1)
 
 
-    #@api.onchange('nombreJours')
-    #
+    @api.onchange('dateDemontage')
     @api.multi
     def _autoCalcNbJours(self):
         for record in self:
