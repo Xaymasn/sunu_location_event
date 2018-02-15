@@ -14,24 +14,20 @@ class Sle_orderline(models.Model):
     nombreJours = fields.Integer("Nombre de jours",default=1)
 
    # price_subtotal = fields.Float(compute='_amount_line', string='Subtotal')
-    def _amount_line(self, cr, uid, ids, field_name, arg, context=None, nombreJours):
-        tax_obj = self.pool.get('account.tax')
-        cur_obj = self.pool.get('res.currency')
-        res = {}
-        if context is None:
-            context = {}
-        for line in self.browse(cr, uid, ids, context=context):
-            # C'est dans cette ligne qu'on multiplie par le nombre de jours
-            price = line.price_unit * (1 - (line.discount or 0.0) / 100.0) * nombreJours
-            taxes = tax_obj.compute_all(cr, uid, line.tax_id, price, line.product_uom_qty, line.product_id, line.order_id.partner_id)
-            cur = line.order_id.pricelist_id.currency_id
-            #This gets the delivery_price
-            total=0
-            for delivery_line in line.delivery_lines:
-                total+=delivery_line.delivery_price
-
-            res[line.id] = cur_obj.round(cr, uid, cur, taxes['total'])+total
-    return res
+    @api.depends('product_uom_qty', 'discount', 'price_unit', 'tax_id', 'nombreJours')
+    def _compute_amount(self):
+        """
+        Calcule le Sous-Total de chaque ligne de la commande.
+        _compute_amount() est une fonction de Odoo overridée.
+        """
+        for line in self:
+            price = line.price_unit * (1 - (line.discount or 0.0) / 100.0) * line.nombreJours
+            taxes = line.tax_id.compute_all(price, line.order_id.currency_id, line.product_uom_qty, product=line.product_id, partner=line.order_id.partner_shipping_id)
+            line.update({
+                'price_tax': sum(t.get('amount', 0.0) for t in taxes.get('taxes', [])),
+                'price_total': taxes['total_included'],
+                'price_subtotal': taxes['total_excluded'],
+            })
 
 
     #self._columns['price_subtotal']._fnct = _amount_line
