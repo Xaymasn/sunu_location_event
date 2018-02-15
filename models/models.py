@@ -11,9 +11,7 @@ class Sle_order(models.Model):
 
 class Sle_orderline(models.Model):
     _inherit = 'sale.order.line'
-    #nombreJours = fields.Integer("Nombre de jours calculés", compute="_autoCalcNbJours")
     nombreJours = fields.Integer("Nombre de jours",default=1)
-    
 
    # price_subtotal = fields.Float(compute='_amount_line', string='Subtotal')
     """
