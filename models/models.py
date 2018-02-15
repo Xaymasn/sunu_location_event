@@ -11,16 +11,15 @@ class Sle_order(models.Model):
 
 class Sle_orderline(models.Model):
     _inherit = 'sale.order.line'
-    nombreJours = fields.Integer("Nombre de jours calculés", compute="_autoCalcNbJours")
-    #nombreJours = fields.Integer("Nombre de jours",default=1)
+    #nombreJours = fields.Integer("Nombre de jours calculés", compute="_autoCalcNbJours")
+    nombreJours = fields.Integer("Nombre de jours",default=1)
 
 
-    @api.onchange('dateDemontage')
+    @api.onchange('product_uom_qty','nombreJours','price_unit')
     @api.multi
-    def _autoCalcNbJours(self):
+    def _autoCalcSubTotal(self):
         for record in self:
-            record.nombreJours = 3
-        #self.price_subtotal = self.product_uom_qty * self.nombreJours * self.price_unit
+            record.price_subtotal = record.product_uom_qty * record.nombreJours * record.price_unit
         
         # Can optionally return a warning and domains
 
