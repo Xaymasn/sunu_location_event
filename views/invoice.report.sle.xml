@@ -16,12 +16,12 @@
                 <!-- On ajoute d'abord l'entête ->
                 <xpath expr="//table[@class='table table-condensed']//thead//tr/th[3]" position="after">
                     <th class="text-right">Nb Jours</th>
-                </xpath>
+                </xpath -->
 
                 <!-- Ensuite on ajoute le corps de la colonne ->
                 <xpath expr="//tbody[@class='sale_tbody']//tr//td[3]" position="after">
                     <td class="text-right"><span t-field="l.nombreJours"/></td>
-                </xpath>
+                </xpath -->
             <!-- # FIN Ajout de la colone 'Nb Jours' # -->
         </template>
   </data>
