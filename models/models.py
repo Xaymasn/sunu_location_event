@@ -15,6 +15,20 @@ class Sle_orderline(models.Model):
     #nombreJours = fields.Integer(string="Nombre de jours", compute="_autoCalcNbJours")
 
 
+class Sle_accountinvoice(models.Model):
+    _inherit = "account.invoice"
+    order_id = fields.Many2one('sale.order', 'Related_order')
+    lieuEvent = fields.Date(related='order_id.lieuEvent')
+    dateEvent = fields.Date(related='order_id.dateEvent')
+    dateMontage = fields.Date(related='order_id.dateMontage')
+    dateDemontage = fields.Date(related='order_id.dateDemontage')
+
+#class Sle_accountinvoiceline(models.Model):
+#    _inherit = "account.invoice.line"
+#    order_id = fields.Many2one('sale.order.line', 'Related_order')
+#    nombreJours = fields.Date(related='order_id.nombreJours')
+
+
     #@api.onchange('nombreJours')
     #def _onchange_price(self):
         #for record in self:

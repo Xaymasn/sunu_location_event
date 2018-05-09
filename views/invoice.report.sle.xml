@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ce template gère la mise en forme des rapports PDF des factures
+<odoo>
+    <data>
+        <!-- Héritage de la vue "sale.report_saleorder_document" -->
+        <template id="sle_report_invoice_document_inherit" inherit_id="account.report_invoice_document">
+            <!-- Ajout des information de location -->
+            <xpath expr="//div[@name='reference']" position="after">
+                <div name="reference" class="col-xs-2" t-if="o.dateEvent">
+                    <strong>Date de l'évènement:</strong>
+                    <p t-field="o.dateEvent"/>
+                </div>
+            </xpath>
+
+            <!-- # Ajout de la colone 'Nb Jours' # -->
+                <!-- On ajoute d'abord l'entête ->
+                <xpath expr="//table[@class='table table-condensed']//thead//tr/th[3]" position="after">
+                    <th class="text-right">Nb Jours</th>
+                </xpath>
+
+                <!-- Ensuite on ajoute le corps de la colonne ->
+                <xpath expr="//tbody[@class='sale_tbody']//tr//td[3]" position="after">
+                    <td class="text-right"><span t-field="l.nombreJours"/></td>
+                </xpath>
+            <!-- # FIN Ajout de la colone 'Nb Jours' # -->
+        </template>
+  </data>
+</odoo>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Ce template gère la mise en forme des rapports PDF (Factures, devis, duplicata proforma, etc.) -->
+<!-- Ce template gère la mise en forme des rapports PDF des devis et bons de commande
 <odoo>
     <data>
         <!-- Héritage de la vue "sale.report_saleorder_document" -->
-        <template id="sle_report_invoice_document_inherit" inherit_id="sale.report_saleorder_document">
+        <template id="sle_report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
             <!-- Ajout des information de location -->
             <xpath expr="//div[@id='informations']" position="after">
                 <div class="row mt32 mb32" id="sle_event_details">
