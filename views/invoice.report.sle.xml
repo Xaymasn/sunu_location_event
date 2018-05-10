@@ -13,7 +13,7 @@
                     </div>
                     <div name="reference" class="col-xs-3">
                         <strong>Date de l'évènement:</strong>
-                        <p t-field="o.dateEvent"/>
+                        <p t-field="doc.dateEvent"/>
                     </div>
                     <div name="reference" class="col-xs-3">
                         <strong>Date de montage:</strong>
@@ -21,7 +21,7 @@
                     </div>
                     <div name="reference" class="col-xs-3" t-if="o.dateDemontage">
                         <strong>Date de démontage:</strong>
-                        <p t-field="o.dateDemontage"/>
+                        <p t-field="doc.dateDemontage"/>
                     </div>
                 </div>
             </xpath>
