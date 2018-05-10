@@ -5,7 +5,7 @@
         <!-- Héritage de la vue "sale.report_saleorder_document" -->
         <template id="sle_report_invoice_document_inherit" inherit_id="account.report_invoice_document">
             <!-- Ajout des information de location -->
-            <xpath expr="//div/[@class='page']/div[@class='row mt32 mb32']/" position="after">
+            <xpath expr="//div[@class='page']/div[@class='row mt32 mb32']" position="after">
                 <div class="row mt32 mb32">
                     <div name="reference" class="col-xs-2">
                         <strong>Date de l'évènement:</strong>
