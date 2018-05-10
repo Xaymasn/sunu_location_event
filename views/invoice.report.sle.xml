@@ -5,13 +5,13 @@
         <!-- Héritage de la vue "sale.report_saleorder_document" -->
         <template id="sle_report_invoice_document_inherit" inherit_id="account.report_invoice_document">
             <!-- Ajout des information de location -->
-            <xpath expr="//div[@class='row mt32 mb32']/div[@name='reference']" position="after">
-                <div class="row mt32 mb32" style="border:1px solid #333;border-radius:3px;">
-                    <div name="reference" class="col-xs-2" t-if="o.dateEvent">
+            <xpath expr="//div/[@class='page']/div[@class='row mt32 mb32']/" position="after">
+                <div class="row mt32 mb32">
+                    <div name="reference" class="col-xs-2">
                         <strong>Date de l'évènement:</strong>
                         <p t-field="o.dateEvent"/>
                     </div>
-                    <div name="reference" class="col-xs-2" t-if="o.dateMontage">
+                    <div name="reference" class="col-xs-2">
                         <strong>Date de montage:</strong>
                         <p t-field="o.dateMontage"/>
                     </div>
