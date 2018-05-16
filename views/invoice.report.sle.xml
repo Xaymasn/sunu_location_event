@@ -7,15 +7,15 @@
             <!-- Ajout des information de location -->
             <xpath expr="//div[@class='page']/div[@class='row mt32 mb32']" position="after">
                 <div class="row mt32 mb32">
-                    <div name="reference" class="col-xs-3">
+                    <div name="reference" class="col-xs-3" t-if="o.lieuEvent">
                         <strong>Lieu de l'évènement:</strong>
-                        <p t-field="o.order_id.lieuEvent"/>
+                        <p t-field="o.lieuEvent"/>
                     </div>
-                    <div name="reference" class="col-xs-3">
+                    <div name="reference" class="col-xs-3" t-if="o.dateEvent">
                         <strong>Date de l'évènement:</strong>
                         <p t-field="o.dateEvent"/>
                     </div>
-                    <div name="reference" class="col-xs-3">
+                    <div name="reference" class="col-xs-3" t-if="o.dateMontage">
                         <strong>Date de montage:</strong>
                         <p t-field="o.dateMontage"/>
                     </div>
