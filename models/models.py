@@ -21,10 +21,10 @@ class Sle_accountinvoice(models.Model):
     dateMontage = fields.Date(related='order_id.dateMontage')
     dateDemontage = fields.Date(related='order_id.dateDemontage')
 
-#class Sle_accountinvoiceline(models.Model):
-#    _inherit = "account.invoice.line"
-#    order_id = fields.Many2one('sale.order.line', 'Related_order')
-#    nombreJours = fields.Date(related='order_id.nombreJours')
+class Sle_accountinvoiceline(models.Model):
+    _inherit = "account.invoice.line"
+    order_id = fields.Many2one('sale.order.line', 'Related_order')
+    nombreJours = fields.Date(related='order_id.nombreJours')
 
 
     #@api.onchange('nombreJours')
