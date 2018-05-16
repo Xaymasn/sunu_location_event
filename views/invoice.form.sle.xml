@@ -15,7 +15,6 @@
 				<field name="dateMontage"/>
 				<field name="dateDemontage"/>
             </group>
-            <group></group>
 			</xpath>
 			<xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='price_unit']" position="after">
 				<field name="nombreJours"/>
