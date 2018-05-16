@@ -23,8 +23,9 @@ class Sle_accountinvoice(models.Model):
 
 class Sle_accountinvoiceline(models.Model):
     _inherit = "account.invoice.line"
-    order_id = fields.Many2one('sale.order.line', 'Related_order')
-    nombreJours = fields.Date(related='order_id.nombreJours')
+    #order_id = fields.Many2one('sale.order.line', 'Related_order')
+    nombreJours = fields.Integer("Nombre de jours",default=1)
+    #nombreJours = fields.Date(related='order_id.nombreJours')
 
 
     #@api.onchange('nombreJours')
