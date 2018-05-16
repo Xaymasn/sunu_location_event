@@ -21,6 +21,7 @@
         'views/saleorder.form.sle.xml',
         'views/saleorder.tree.sle.xml',
         'views/saleorder.report.sle.xml',
+        'views/invoice.form.sle.xml',
         'views/invoice.report.sle.xml',
     ],
     'demo': [],
