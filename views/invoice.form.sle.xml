@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ce template ajoute des champs supplémentaires au formulaire de facturation -->
+<odoo>
+	<data>
+		<!-- Form View -->
+		<record model="ir.ui.view" id="sle_saleorder_form">
+			<field name="name">sle.invoice.form</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.invoice_form" />
+			<field name="arch" type="xml">
+			<xpath expr="//sheet[@string='Invoice']/group[1]" position="after">
+            <group>
+				<field name="lieuEvent"/>
+				<field name="dateEvent"/>
+				<field name="dateMontage"/>
+				<field name="dateDemontage"/>
+            </group>
+			</xpath>
+			<xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='price_unit']" position="after">
+				<field name="nombreJours"/>
+			</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>
