@@ -15,16 +15,22 @@ class Sle_orderline(models.Model):
 
 class Sle_accountinvoice(models.Model):
     _inherit = "account.invoice"
-    order_id = fields.Many2one('sale.order', 'Related_order')
-    lieuEvent = fields.Char(related='order_id.lieuEvent')
-    dateEvent = fields.Date(related='order_id.dateEvent')
-    dateMontage = fields.Date(related='order_id.dateMontage')
-    dateDemontage = fields.Date(related='order_id.dateDemontage')
+    lieuEvent_ = fields.Char("Lieu de l'événement")
+    dateEvent_ = fields.Date("Date l'événement")
+    dateMontage_ = fields.Date("Date de montage")
+    dateDemontage_ = fields.Date("Date de démontage")
+
+    # order_id = fields.Many2one('sale.order', 'Related_order')
+    # lieuEvent = fields.Char(related='order_id.lieuEvent')
+    # dateEvent = fields.Date(related='order_id.dateEvent')
+    # dateMontage = fields.Date(related='order_id.dateMontage')
+    # dateDemontage = fields.Date(related='order_id.dateDemontage')
 
 class Sle_accountinvoiceline(models.Model):
     _inherit = "account.invoice.line"
+    nombreJours_ = fields.Integer("Nombre de jours",default=1)
     #order_id = fields.Many2one('sale.order.line', 'Related_order')
-    nombreJours = fields.Integer("Nombre de jours",default=1)
+    #nombreJours = fields.Integer("Nombre de jours",default=1)
     #nombreJours = fields.Date(related='order_id.nombreJours')
 
 

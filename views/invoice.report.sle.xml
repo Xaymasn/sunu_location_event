@@ -7,19 +7,19 @@
             <!-- Ajout des information de location -->
             <xpath expr="//div[@class='page']/div[@class='row mt32 mb32']" position="after">
                 <div class="row mt32 mb32">
-                    <div name="reference" class="col-xs-3" t-if="o.lieuEvent">
+                    <div name="reference" class="col-xs-3" t-if="o.lieuEvent_">
                         <strong>Lieu de l'évènement:</strong>
                         <p t-field="o.lieuEvent"/>
                     </div>
-                    <div name="reference" class="col-xs-3" t-if="o.dateEvent">
+                    <div name="reference" class="col-xs-3" t-if="o.dateEvent_">
                         <strong>Date de l'évènement:</strong>
                         <p t-field="o.dateEvent"/>
                     </div>
-                    <div name="reference" class="col-xs-3" t-if="o.dateMontage">
+                    <div name="reference" class="col-xs-3" t-if="o.dateMontage_">
                         <strong>Date de montage:</strong>
                         <p t-field="o.dateMontage"/>
                     </div>
-                    <div name="reference" class="col-xs-3" t-if="o.dateDemontage">
+                    <div name="reference" class="col-xs-3" t-if="o.dateDemontage_">
                         <strong>Date de démontage:</strong>
                         <p t-field="o.dateDemontage"/>
                     </div>
@@ -27,15 +27,15 @@
             </xpath>
 
             <!-- # Ajout de la colone 'Nb Jours' # -->
-                <!-- On ajoute d'abord l'entête ->
-                <xpath expr="//table[@class='table table-condensed']//thead//tr/th[3]" position="after">
-                    <th class="text-right">Nb Jours</th>
-                </xpath -->
+            <!-- On ajoute d'abord l'entête -->
+            <xpath expr="//table[@class='table table-condensed']//thead//tr/th[3]" position="after">
+                <th class="text-right">Nb Jours</th>
+            </xpath>
 
-                <!-- Ensuite on ajoute le corps de la colonne ->
-                <xpath expr="//tbody[@class='sale_tbody']//tr//td[3]" position="after">
-                    <td class="text-right"><span t-field="l.nombreJours"/></td>
-                </xpath -->
+            <!-- Ensuite on ajoute le corps de la colonne -->
+            <xpath expr="//tbody[@class='sale_tbody']//tr//td[3]" position="after">
+                <td class="text-right"><span t-field="l.nombreJours"/></td>
+            </xpath>
             <!-- # FIN Ajout de la colone 'Nb Jours' # -->
         </template>
   </data>

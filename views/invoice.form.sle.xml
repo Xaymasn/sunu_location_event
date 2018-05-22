@@ -10,14 +10,14 @@
 			<field name="arch" type="xml">
 			<xpath expr="//sheet[1]/group[1]" position="after">
             <group>
-				<field name="lieuEvent"/>
-				<field name="dateEvent"/>
-				<field name="dateMontage"/>
-				<field name="dateDemontage"/>
+				<field name="lieuEvent_"/>
+				<field name="dateEvent_"/>
+				<field name="dateMontage_"/>
+				<field name="dateDemontage_"/>
             </group>
 			</xpath>
 			<xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='price_unit']" position="after">
-				<field name="nombreJours"/>
+				<field name="nombreJours_"/>
 			</xpath>
 			</field>
 		</record>
