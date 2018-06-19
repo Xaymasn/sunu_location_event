@@ -41,7 +41,7 @@ class AccountTax(models.Model):
     _inherit = 'account.tax'
 
     @api.multi
-    def compute_all(self, price_unit, currency=None, nombreJours=1, quantity=1.0, product=None, partner=None):
+    def compute_all(price_unit, currency=None, nombreJours=1, quantity=1.0, product=None, partner=None):
         if len(self) == 0:
             company_id = self.env.user.company_id
         else:
@@ -60,7 +60,7 @@ class AccountTax(models.Model):
             prec += 5
         # total_excluded = total_included = base = round(price_unit * quantity, prec)
         # Modification du calcul de taxe
-        total_excluded = total_included = base = price_unit *  quantity 
+        total_excluded = total_included = base = price_unit *  quantity  * nombreJours
 
         for tax in self.sorted(key=lambda r: r.sequence):
             if tax.amount_type == 'group':
