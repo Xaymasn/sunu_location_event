@@ -60,7 +60,7 @@ class AccountTax(models.Model):
             prec += 5
         # total_excluded = total_included = base = round(price_unit * quantity, prec)
         # Modification du calcul de taxe
-        total_excluded = total_included = base = (price_unit * quantity) * nombreJours
+        total_excluded = total_included = base = (price_unit * quantity) * int(nombreJours)
 
         for tax in self.sorted(key=lambda r: r.sequence):
             if tax.amount_type == 'group':
