@@ -59,13 +59,14 @@ class AccountTax(models.Model):
         if not round_tax:
             prec += 5
         # Modification du calcul de taxe
-        total_excluded = total_included = base = round(price_unit * quantity, prec)
+        # Ce calcul engendre une erreur du type :unsupported operand type(s) for *: 'float' and 'product.product'
+        # total_excluded = total_included = base = round(price_unit * quantity, prec)
         #total_excluded = total_included = base = price_unit *  quantity  * nombreJours
 
         for tax in self.sorted(key=lambda r: r.sequence):
             if tax.amount_type == 'group':
                 ret = tax.children_tax_ids.compute_all(price_unit, currency, quantity, product, partner)
-                total_excluded = ret['total_excluded']
+                #total_excluded = ret['total_excluded']
                 base = ret['base']
                 total_included = ret['total_included']
                 tax_amount = total_included - total_excluded
