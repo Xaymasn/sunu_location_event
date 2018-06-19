@@ -31,16 +31,16 @@
             </xpath>
 
             <!-- # Ajout de la colone 'Nb Jours' dans les lignes de la commande # -->
-                <!-- On ajoute d'abord l'entête tu tableau -->
+                <!-- On ajoute d'abord l'entête tu tableau>
                 <xpath expr="//table[@class='table table-condensed']//thead//tr/th[3]" position="after">
                     <th class="text-right">Nb Jours</th>
                 </xpath>
 
-                <!-- Ensuite on ajoute le corps du tableau -->
+                <Ensuite on ajoute le corps du tableau>
                 <xpath expr="//tbody[@class='sale_tbody']//tr//td[3]" position="after">
                     <td class="text-right"><span t-field="l.nombreJours"/></td>
                 </xpath>
-            <!-- # FIN Ajout de la colone 'Nb Jours' # -->
+            <# FIN Ajout de la colone 'Nb Jours' #-->
         </template>
   </data>
 </odoo>
