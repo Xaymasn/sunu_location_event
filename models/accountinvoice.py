@@ -27,7 +27,8 @@ class AccountInvoiceLine(models.Model):
             taxes = self.invoice_line_tax_ids.compute_all(price, currency, self.nombreJours, self.quantity, product=self.product_id, partner=self.invoice_id.partner_id)
 
         # Calcul du sous-total de la ligne
-        self.price_subtotal = price_subtotal_signed = taxes['total_excluded'] if taxes else self.quantity * price * self.nombreJours
+        #self.price_subtotal = price_subtotal_signed = taxes['total_excluded'] if taxes else self.quantity * price * self.nombreJours
+        self.price_subtotal = price_subtotal_signed = self.quantity * price * self.nombreJours
         self.price_total = taxes['total_included'] if taxes else self.price_subtotal
 
         if self.invoice_id.currency_id and self.invoice_id.currency_id != self.invoice_id.company_id.currency_id:
@@ -37,7 +38,7 @@ class AccountInvoiceLine(models.Model):
         self.price_subtotal_signed = price_subtotal_signed * sign
 
 # Modification du modèle de Taxes
-class AccountTax(models.Model):
+'''class AccountTax(models.Model):
     _inherit = 'account.tax'
 
     @api.multi
@@ -59,7 +60,8 @@ class AccountTax(models.Model):
         if not round_tax:
             prec += 5
         # Modification du calcul de taxe
-        # Ce calcul engendre une erreur du type :unsupported operand type(s) for *: 'float' and 'product.product'
+        # Ce calcul engendre une erreur du type :unsupported operand type(s) for *: 'float' and 'product.product' 
+        # On le met en commentaire pour le moment
         # total_excluded = total_included = base = round(price_unit * quantity, prec)
         #total_excluded = total_included = base = price_unit *  quantity  * nombreJours
 
@@ -106,3 +108,5 @@ class AccountTax(models.Model):
             'total_included': total_included,
             'base': base,
     }
+    '''
+    
