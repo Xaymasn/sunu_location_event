@@ -59,7 +59,8 @@ class AccountTax(models.Model):
         # precision when we round the tax amount for each line (we use
         # the 'Account' decimal precision + 5), and that way it's like
         # rounding after the sum of the tax amounts of each line
-        prec = currency.decimal_places
+        #prec = currency.decimal_places
+        prec = 5
     
         # In some cases, it is necessary to force/prevent the rounding of the tax and the total
         # amounts. For example, in SO/PO line, we don't want to round the price unit at the
