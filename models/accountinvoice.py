@@ -22,26 +22,22 @@ class AccountInvoiceLine(models.Model):
         currency = self.invoice_id and self.invoice_id.currency_id or None
         price = self.price_unit * (1 - (self.discount or 0.0) / 100.0)
         taxes = False
-        if self.invoice_line_tax_ids:
-            taxes = self.invoice_line_tax_ids.compute_all(price, currency, self.quantity, self.nombreJours, product=self.product_id, partner=self.invoice_id.partner_id)
-
+        #if self.invoice_line_tax_ids:
+        #    taxes = self.invoice_line_tax_ids.compute_all(price, currency, self.nombreJours, self.quantity, product=self.product_id, partner=self.invoice_id.partner_id)
         # Calcul du sous-total de la ligne
-        self.price_subtotal = price_subtotal_signed = taxes['total_excluded'] if taxes else self.quantity * price * self.nombreJours
-        #self.price_subtotal = price_subtotal_signed = self.quantity * price * self.nombreJours
+        #self.price_subtotal = price_subtotal_signed = taxes['total_excluded'] if taxes else self.quantity * price * self.nombreJours
+        self.price_subtotal = price_subtotal_signed = self.quantity * price * self.nombreJours
         self.price_total = taxes['total_included'] if taxes else self.price_subtotal
-
         if self.invoice_id.currency_id and self.invoice_id.currency_id != self.invoice_id.company_id.currency_id:
             price_subtotal_signed = self.invoice_id.currency_id.with_context(date=self.invoice_id._get_currency_rate_date()).compute(price_subtotal_signed, self.invoice_id.company_id.currency_id)
-
         sign = self.invoice_id.type in ['in_refund', 'out_refund'] and -1 or 1
         self.price_subtotal_signed = price_subtotal_signed * sign
 
 # Modification du modèle de Taxes
 class AccountTax(models.Model):
     _inherit = 'account.tax'
-
     @api.multi
-    def compute_all(self, price_unit, currency=None, quantity=1.0, nombreJours, product=None, partner=None):
+    def compute_all(self, price_unit, currency=None, quantity=1.0, product=None, partner=None):
         if len(self) == 0:
             company_id = self.env.user.company_id
         else:
@@ -59,33 +55,26 @@ class AccountTax(models.Model):
         # the 'Account' decimal precision + 5), and that way it's like
         # rounding after the sum of the tax amounts of each line
         prec = currency.decimal_places
-
         # In some cases, it is necessary to force/prevent the rounding of the tax and the total
         # amounts. For example, in SO/PO line, we don't want to round the price unit at the
         # precision of the currency.
         # The context key 'round' allows to force the standard behavior.
-
         round_tax = False if company_id.tax_calculation_rounding_method == 'round_globally' else True
         round_total = True
         if 'round' in self.env.context:
             round_tax = bool(self.env.context['round'])
             round_total = bool(self.env.context['round'])
-
         if not round_tax:
             prec += 5
-
         base_values = self.env.context.get('base_values')
-
         if not base_values:
             total_excluded = total_included = base = round(price_unit * quantity, prec)
         else:
             total_excluded, total_included, base = base_values
-
         # Sorting key is mandatory in this case. When no key is provided, sorted() will perform a
         # search. However, the search method is overridden in account.tax in order to add a domain
         # depending on the context. This domain might filter out some taxes from self, e.g. in the
         # case of group taxes.
-
         for tax in self.sorted(key=lambda r: r.sequence):
             if tax.amount_type == 'group':
                 children = tax.children_tax_ids.with_context(base_values=(total_excluded, total_included, base))
@@ -96,20 +85,16 @@ class AccountTax(models.Model):
                 tax_amount = total_included - total_excluded
                 taxes += ret['taxes']
                 continue
-
             tax_amount = tax._compute_amount(base, price_unit, quantity, product, partner)
             if not round_tax:
                 tax_amount = round(tax_amount, prec)
             else:
                 tax_amount = currency.round(tax_amount)
-
             if tax.price_include:
                 total_excluded -= tax_amount
                 base -= tax_amount
-
             else:
                 total_included += tax_amount
-
             # Keep base amount used for the current tax
             tax_base = base
             if tax.include_base_amount:
