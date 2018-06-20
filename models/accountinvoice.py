@@ -41,7 +41,7 @@ class AccountTax(models.Model):
     _inherit = 'account.tax'
     
     @api.multi
-    def compute_all(self, price_unit, currency=None, nbJours, quantity=1.0, product=None, partner=None):
+    def compute_all(self, price_unit, currency=None, nombreJours, quantity=1.0, product=None, partner=None):
         if len(self) == 0:
             company_id = self.env.user.company_id
         else:
