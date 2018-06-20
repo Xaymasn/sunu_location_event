@@ -23,7 +23,7 @@ class AccountInvoiceLine(models.Model):
         price = self.price_unit * (1 - (self.discount or 0.0) / 100.0)
         taxes = False
         if self.invoice_line_tax_ids:
-            taxes = self.invoice_line_tax_ids.compute_all(price, currency, self.quantity, nbJrs=self.nombreJours, product=self.product_id, partner=self.invoice_id.partner_id)
+            taxes = self.invoice_line_tax_ids.compute_all(price, currency, self.quantity, self.nombreJours, product=self.product_id, partner=self.invoice_id.partner_id)
 
         # Calcul du sous-total de la ligne
         self.price_subtotal = price_subtotal_signed = taxes['total_excluded'] if taxes else self.quantity * price * self.nombreJours
@@ -41,7 +41,7 @@ class AccountTax(models.Model):
     _inherit = 'account.tax'
 
     @api.multi
-    def compute_all(self, price_unit, currency=None, quantity=1.0, nbJrs, product=None, partner=None):
+    def compute_all(self, price_unit, currency=None, quantity=1.0, nombreJours, product=None, partner=None):
         if len(self) == 0:
             company_id = self.env.user.company_id
         else:
