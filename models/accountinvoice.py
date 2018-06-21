@@ -79,7 +79,9 @@ class AccountTax(models.Model):
         base_values = self.env.context.get('base_values')
     
         if not base_values:
-            total_excluded = total_included = base = round(price_unit * quantity * nbJrs, prec)
+            odooAmount = price_unit * quantity
+            customAmount = nbJrs * odooAmount
+            total_excluded = total_included = base = round( customAmount , prec)
         else:
             total_excluded, total_included, base = base_values
     
