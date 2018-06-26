@@ -18,7 +18,7 @@
 				<group></group>
 			</xpath>
 			<xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='price_unit']" position="after">
-				<field name="nombreJours"/>
+				<field name="nombrejours"/>
 			</xpath>
 			</field>
 		</record>

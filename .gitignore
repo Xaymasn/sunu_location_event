@@ -1,1 +1,3 @@
 .vscode
+.idea/
+models/__pycache__/
