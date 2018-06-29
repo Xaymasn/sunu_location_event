@@ -60,7 +60,7 @@
                                     </td>
                                 </tr>
                                 <tr class="border-black" style="border-bottom:1px solid #dddddd;">
-                                    <td><strong>Subtotal HT</strong></td>
+                                    <td><strong>Sous-Total HT</strong></td>
                                     <td class="text-right">
                                         <span t-field="doc.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
                                     </td>

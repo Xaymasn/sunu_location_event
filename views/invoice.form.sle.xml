@@ -8,18 +8,28 @@
 			<field name="model">account.invoice</field>
 			<field name="inherit_id" ref="account.invoice_form" />
 			<field name="arch" type="xml">
-			<xpath expr="//sheet[1]/group[1]" position="after">
-				<group>
-					<field name="lieuEvent_"/>
-					<field name="dateEvent_"/>
-					<field name="dateMontage_"/>
-					<field name="dateDemontage_"/>
-				</group>
-				<group></group>
-			</xpath>
-			<xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='price_unit']" position="after">
-				<field name="nombrejours"/>
-			</xpath>
+				<xpath expr="//sheet[1]/group[1]" position="after">
+					<group>
+						<field name="lieuEvent_"/>
+						<field name="dateEvent_"/>
+						<field name="dateMontage_"/>
+						<field name="dateDemontage_"/>
+					</group>
+					<group></group>
+				</xpath>
+				<xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='price_unit']" position="after">
+					<field name="nombrejours"/>
+				</xpath>
+				<xpath expr="//field[@name='amount_untaxed']" position="before">
+                    <field name="amount_without_discount" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                    <field name="amount_discount_negative" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                </xpath>
+                <xpath expr="//field[@name='comment']" position="before">
+                    <group name="discount" col="4">
+                        <field name="discount_type"/>
+                        <field name="discount_rate"/>
+                    </group>
+				</xpath>
 			</field>
 		</record>
 	</data>
