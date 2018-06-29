@@ -28,7 +28,7 @@ class AccountInvoice(models.Model):
             # Le sous-total (HT) des articles
             self.amount_untaxed += line.price_subtotal
             # La remise totale des articles
-            self.amount_discount += (line.quantity * line.price_unit * line.discount) / 100
+            self.amount_discount += (line.quantity * line.price_unit * line.nombrejours * line.discount) / 100
 
         for line in self.tax_line_ids:
             # Le montant des taxes
@@ -63,7 +63,7 @@ class AccountInvoice(models.Model):
             else:
                 total = discount = 0.0
                 for line in inv.invoice_line_ids:
-                    total += (line.quantity * line.price_unit)
+                    total += (line.quantity * line.price_unit * line.nombrejours)
                 if inv.discount_rate != 0:
                     discount = (inv.discount_rate / total) * 100
                 else:
