@@ -31,16 +31,74 @@
             </xpath>
 
             <!-- # Ajout de la colone 'Nb Jours' dans les lignes de la commande # -->
-                <!-- On ajoute d'abord l'entête tu tableau>
+                <!-- On ajoute d'abord l'entête tu tableau-->
                 <xpath expr="//table[@class='table table-condensed']//thead//tr/th[3]" position="after">
                     <th class="text-right">Nb Jours</th>
                 </xpath>
 
-                <Ensuite on ajoute le corps du tableau>
+                <!--Ensuite on ajoute le corps du tableau-->
                 <xpath expr="//tbody[@class='sale_tbody']//tr//td[3]" position="after">
-                    <td class="text-right"><span t-field="l.nombreJours"/></td>
+                    <td class="text-right"><span t-field="l.nombrejours"/></td>
                 </xpath>
-            <# FIN Ajout de la colone 'Nb Jours' #-->
+            <!-- # FIN Ajout de la colone 'Nb Jours' #-->
+
+            <!-- # Modification des lignes de totaux # -->
+                <xpath expr="//div[@class='row'][@name='total']" position="replace">
+                    <div class="row" name="total">
+                        <div class="col-xs-4 pull-right">
+                            <table class="table table-condensed" style="min-width: 200px;max-width: 350px;">
+                                <tr class="border-black" style="border-bottom:1px solid #dddddd;">
+                                    <td><strong>Montant Initial</strong></td>
+                                    <td class="text-right">
+                                        <span t-field="doc.amount_without_discount" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-black" style="border-bottom:1px solid #dddddd;">
+                                    <td><strong>Remise</strong></td>
+                                    <td class="text-right">
+                                        <span t-field="doc.amount_discount_negative" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-black" style="border-bottom:1px solid #dddddd;">
+                                    <td><strong>Subtotal HT</strong></td>
+                                    <td class="text-right">
+                                        <span t-field="doc.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                    </td>
+                                </tr>
+
+                                <t t-foreach="doc._get_tax_amount_by_group()" t-as="amount_by_group">
+                                    <tr style="border-bottom:1px solid #dddddd;">
+                                        <t t-if="amount_by_group[3] == 1 and doc.amount_untaxed == amount_by_group[2]">
+                                            <td>
+                                                <span t-esc="amount_by_group[0]"/>
+                                                <span>&amp;nbsp;<span>on</span>&amp;nbsp;<t t-esc="amount_by_group[2]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/></span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="amount_by_group[1]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                            </td>
+                                        </t>
+                                        <t t-else="">
+                                            <td>
+                                                <span t-esc="amount_by_group[0]"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="amount_by_group[1]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </t>
+                                <tr class="border-black">
+                                    <td><strong>Total TTC</strong></td>
+                                    <td class="text-right">
+                                        <span t-field="doc.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </xpath>
+            <!-- # Modification des lignes de totaux # -->
+
         </template>
   </data>
 </odoo>
