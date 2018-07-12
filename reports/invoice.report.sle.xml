@@ -30,15 +30,27 @@
             </xpath>
 
             <!-- # Ajout de la colone 'Nb Jours' # -->
-            <!-- On ajoute d'abord l'entête -->
-            <xpath expr="//table[@class='table table-condensed']//thead//tr/th[3]" position="after">
-                <th class="text-right">Nb Jours</th>
-            </xpath>
+                <!-- On ajoute d'abord l'entête -->
+                <xpath expr="//table[@class='table table-condensed']//thead//tr/th[3]" position="after">
+                    <th class="text-right">Nb Jours</th>
+                </xpath>
 
-            <!-- Ensuite on ajoute le corps de la colonne -->
-            <xpath expr="//tbody[@class='invoice_tbody']//tr//td[3]" position="after">
-                <td class="text-right"><span t-field="l.nombrejours"/></td>
-            </xpath>
+                <!-- Ensuite on ajoute le corps de la colonne -->
+                <xpath expr="//tbody[@class='invoice_tbody']//tr//td[3]" position="after">
+                    <td class="text-right"><span t-field="l.nombrejours"/></td>
+                </xpath>
+            <!-- # FIN Ajout de la colone 'Nb Jours' # -->
+
+            <!-- # On cache la colonne 'Remise' # -->
+                <!-- On ajoute d'abord l'entête -->
+                <xpath expr="//table[@class='table table-condensed']//thead//tr/th[6]" position="replace">
+                    <!--th class="text-right">Remise</th-->
+                </xpath>
+
+                <!-- Ensuite on ajoute le corps de la colonne -->
+                <xpath expr="//tbody[@class='invoice_tbody']//tr//td[6]" position="replace">
+                    <!--td class="text-right"><span t-field="l.nombrejours"/></td-->
+                </xpath>
             <!-- # FIN Ajout de la colone 'Nb Jours' # -->
 
             <!-- # Modification des lignes de totaux # -->
