@@ -75,7 +75,7 @@
                             <tr class="border-black">
                                 <td><strong>Remise</strong></td>
                                 <td class="text-right">
-                                    <span t-field="o.amount_discount_negative" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                    <span t-esc="-1 * o.amount_discount" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                 </td>
                             </tr>
 
