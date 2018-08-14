@@ -53,6 +53,13 @@
                 </xpath>
             <!-- # FIN Ajout de la colone 'Nb Jours' # -->
 
+            <!-- # On modifie la colonne 'Montant' # -->
+                <!-- On modifie seulement le corps de la colonne -->
+                <xpath expr="//tbody[@class='invoice_tbody']//tr//td[7]" position="replace">
+                    <td class="text-right"><span t-esc="l.nombrejours * l.quantity * l.price_unit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></td>
+                </xpath>
+            <!-- # FIN modifie la colonne 'Montant' # -->
+
             <!-- # Modification des lignes de totaux # -->
             <xpath expr="//div[@class='row'][@id='total']" position="replace">
                 <div id="total" class="row">
